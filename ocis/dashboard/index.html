@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="#" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OCIS — Opensource Contributor Intelligence System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Precompiled scripts now served; remove in-browser Babel for production/dev performance -->
+    <style>
+      body {
+        margin: 0;
+        font-family: 'JetBrains Mono', 'Fira Code', monospace;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: #0d1117;
+        color: #c9d1d9;
+      }
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      header {
+        background-color: #161b22;
+        padding: 1rem;
+        border-bottom: 1px solid #30363d;
+      }
+      header h1 {
+        margin: 0;
+        color: #00ff9f;
+        font-size: 1.5rem;
+      }
+      .container {
+        flex: 1;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .btn {
+        background-color: #00ff9f;
+        color: #0d1117;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.2s;
+      }
+      .btn:hover {
+        background-color: #00cc7f;
+      }
+      .btn-secondary {
+        background-color: #21262d;
+        color: #c9d1d9;
+      }
+      .btn-secondary:hover {
+        background-color: #30363d;
+      }
+      .card {
+        background-color: #161b22;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #30363d;
+      }
+      .loading, .error {
+        text-align: center;
+        padding: 3rem;
+        color: #8b949e;
+      }
+      .error {
+        color: #f85149;
+      }
+      .glow-button:hover {
+        box-shadow: 0 0 25px rgba(0, 255, 159, 0.6) !important;
+        transform: translateY(-2px);
+        transition: all 0.2s ease;
+      }
+      @keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.6; }
+        100% { opacity: 1; }
+      }
+      .pulse {
+        animation: pulse 2s infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Load precompiled bundle -->
+    <script type="text/javascript" src="/ui/src/main.js"></script>
+  </body>
+</html>

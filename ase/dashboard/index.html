@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASE — Autonomous Coding Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/ui/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="logo-icon">⬢</span>
+        <span>ASE AGENT</span>
+      </div>
+      <nav style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="#" class="nav-link active" data-view="dashboard">
+          <span>🏠</span> Dashboard
+        </a>
+        <a href="#" class="nav-link" data-view="intelligence">
+          <span>🧠</span> Org Intelligence
+        </a>
+        <a href="#" class="nav-link" data-view="fixes">
+          <span>🛠️</span> AI Fixes
+        </a>
+        <a href="#" class="nav-link" data-view="features">
+          <span>✨</span> Feature Ideas
+        </a>
+      </nav>
+      <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: #64748b;">
+        Agent Version 5.2.0<br>
+        Dry Run Mode: ON
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Dashboard View -->
+      <section id="view-dashboard" class="view">
+        <div class="input-hero">
+          <h1>Autonomous Coding Agent</h1>
+          <p style="margin-bottom: 24px; opacity: 0.9;">Paste a GitHub repository. Our agent will analyze the org, find vulnerabilities, and code real features.</p>
+          <div class="input-group">
+            <input id="repoUrl" type="url" class="url-input" placeholder="https://github.com/owner/repository" autofocus>
+            <button id="analyzeBtn" class="btn-magic">Start Magic</button>
+          </div>
+        </div>
+
+        <div class="agent-grid">
+          <div class="card">
+            <h2><span>📟</span> Agent Thought Stream</h2>
+            <div class="agent-logs" id="logStream">
+              <div class="log-entry">
+                <span class="log-ts">00:00:00</span>
+                <span class="log-msg info">Ready for new assignment. Waiting for repository URL...</span>
+              </div>
+            </div>
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div class="card">
+              <h2><span>📊</span> Live Stats</h2>
+              <div class="stat-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="stat-card">
+                  <div class="stat-val" id="stat-vulns">0</div>
+                  <div class="stat-label">Vulns</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-val" id="stat-feats">0</div>
+                  <div class="stat-label">Features</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card" style="flex: 1;">
+              <h2><span>🤖</span> Current Task</h2>
+              <p id="current-task-text" style="color: var(--text-muted); font-size: 0.875rem;">Idle</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results Area (Hidden initially) -->
+      <section id="resultsArea" class="hidden">
+        <div class="card animate-in" style="background: #f0fdf4; border-color: #bbf7d0; margin-bottom: 32px;">
+          <h2 style="color: #166534;">✨ Analysis Complete!</h2>
+          <p id="summaryText" style="color: #166534;"></p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 40px;">
+          <div id="intelligence-section">
+            <h2 style="margin-bottom: 20px;">🧠 Organizational Intelligence</h2>
+            <div class="card" id="org-intel-card">
+              <p style="color: var(--text-muted);">No data yet.</p>
+            </div>
+          </div>
+
+          <div id="fixes-section">
+            <h2 style="margin-bottom: 20px;">🛠️ Critical AI Fixes</h2>
+            <div class="rec-grid" id="fixesList"></div>
+          </div>
+
+          <div id="features-section">
+            <h2 style="margin-bottom: 20px;">✨ Strategic Feature Proposals</h2>
+            <div class="rec-grid" id="featuresList"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Templates -->
+  <template id="fixTemplate">
+    <div class="card rec-card animate-in">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+        <span class="rec-impact" id="fix-severity">CRITICAL</span>
+        <button class="btn-magic btn-pr" style="padding: 6px 12px; font-size: 0.75rem; background: var(--primary); color: white;">Create PR</button>
+      </div>
+      <h3 style="font-size: 1.125rem; margin-bottom: 8px;" id="fix-title"></h3>
+      <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 16px;" id="fix-reasoning"></p>
+      <div class="patch-preview" id="fix-patch"></div>
+    </div>
+  </template>
+
+  <template id="featTemplate">
+    <div class="card rec-card animate-in" style="border-left-color: #a855f7;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+        <span class="rec-impact game-changing" id="feat-impact">HIGH IMPACT</span>
+        <button class="btn-magic btn-pr" style="padding: 6px 12px; font-size: 0.75rem; background: #a855f7; color: white;">Open Feature PR</button>
+      </div>
+      <h3 style="font-size: 1.125rem; margin-bottom: 8px;" id="feat-title"></h3>
+      <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 16px;" id="feat-desc"></p>
+      <div class="patch-preview" id="feat-sketch"></div>
+    </div>
+  </template>
+
+  <script src="/ui/app.js"></script>
+</body>
+</html>

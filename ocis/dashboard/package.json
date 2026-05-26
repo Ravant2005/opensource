@@ -1,0 +1,12 @@
+{
+  "name": "ocis-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "esbuild src/main.js --bundle --minify --outfile=dist/main.js",
+    "watch": "esbuild src/main.js --bundle --outfile=dist/main.js --watch"
+  },
+  "devDependencies": {
+    "esbuild": "^0.18.0"
+  }
+}

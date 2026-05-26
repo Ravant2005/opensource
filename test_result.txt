@@ -1,0 +1,2 @@
+{'status': 'dry_run', 'pr_url': 'https://github.com/owner/repo/compare/main...testuser:ase/test-branch', 'branch': 'ase/test-branch', 'note': 'Dry-run: no network calls made. Set ASE_DRY_RUN=false to submit real PR.'}
+PR engine: OK

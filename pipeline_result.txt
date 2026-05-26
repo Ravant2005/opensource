@@ -1,0 +1,14 @@
+/Users/benny/Documents/opensource-main/ase/intelligence/feature_recommender.py:21: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  from google import generativeai as genai
+Pipeline status: JobStatus.DONE
+Findings: 1
+Patches: 0
+PRs: 0
+Full pipeline: OK

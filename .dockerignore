@@ -1,0 +1,15 @@
+.git
+.gitignore
+.env
+.venv
+venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+node_modules
+ocis/dashboard/node_modules
+ocis/dashboard/dist
+npm-debug.log
+Dockerfile*
+.dockerignore
