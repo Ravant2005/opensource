@@ -67,6 +67,9 @@ npm-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# Linux kernel source
+linux/
+
 # Misc
 *.tmp
 *.bak
