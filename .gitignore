@@ -1,0 +1,72 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+.virtualenv/
+pip-wheel-metadata/
+
+# Testing
+.pytest_cache/
+.coverage
+.coverage.*
+coverage/
+htmlcov/
+.tox/
+nosetests.xml
+pytest.xml
+
+# Environment & secrets — NEVER commit
+.env
+.env.*
+!.env.example
+
+# Runtime artifacts
+*.db
+*.sqlite
+*.sqlite3
+ase_patches.db
+ocis.db
+*.qdrant/
+*.sarif
+*.log
+logs/
+
+# ML / model cache
+*.pt
+*.pth
+*.bin
+*.safetensors
+.cache/
+huggingface/
+sentence_transformers/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (dashboard)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Misc
+*.tmp
+*.bak
